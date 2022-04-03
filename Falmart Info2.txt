@@ -1,0 +1,27 @@
+Start by getting a Bank Loan that needs repaying.
+Initial size/departments = Dry Grocery, Produce, Frozen/Dairy, Meat. 
+*More options possible. Grocery start (high ff, high, C%, low ATS); GM start (low ff, low C%, high ATS).
+
+Minimum Viable Product:
+Department(s), customers, employees, sales.
+
+4 major factors to sales: Footfall, conversion %, average ticket size.
+
+ATS * Footfall * Conversion = Sales
+
+Customers = Footfall
+Employees = Conversion %
+Departments = ATS
+
+Departments provide a fixed boost to footfall, possible conversion penalty, and set the ATS.
+
+Dry Grocery:	+30 ff/h, ATS = $30, C% = .85 FCOV = .4 GMCOV = .3	= $1275/h; $17850/d
+Produce:	+20 ff/h, ATS = $15, C% = .60 FCOV = .5	GMCOV = .3	= $378/h; $5292/d
+Meat:		+ 7 ff/h, ATS = $30, C% = .60 FCOV = .5	GMCOV = .3	= $126/h; $1764/d
+Frozen/Dairy:	+12 ff/h, ATS = $25, C% = .60 FOCV = .5	GMCOV = .3	= $180/h; $2520/d
+*Based on 14 hour calculation
+Time of day will affect footfall. Increase/Decrease in footfall but minor increase in Conversion.
+
+Crossover Effect for Footfall
+Food Crossover Value (FCOV) = crossover effect for food side foot traffic (food side will be higher)
+GM Crossover Value (GMCOV) = crossover effect for GM side foot traffic (food side will be lower)
