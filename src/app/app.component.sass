@@ -1,0 +1,52 @@
+:host
+    height: 100%
+    display: block
+
+.sidebar
+    display: inline-block
+    background-color: #222
+    color: #ddd
+    padding: 2px 8px
+    float: left
+    height: 100%
+    box-sizing: border-box
+
+.sidebar-item
+    margin: 12px 0px
+    font-size: 1.4em
+    font-family: sans-serif
+    text-align: center
+
+.sidebar-item.clickable:hover
+    background-color: #333
+    cursor: pointer
+
+.sidebar-item.active
+    text-decoration: underline
+
+.sidebar-divider
+    border-bottom: solid 2px #ddd
+    position: relative
+    left: -8px
+    width: calc(100% + 8px * 2)
+
+.time-control
+    margin-right: 6px
+    padding: 6px
+
+.time-control-group
+    text-align: center
+
+.content
+    display: inline-block
+    height: 100%
+    width: calc(100% - 200px)
+    clear: both
+    padding: 0px 8px
+    box-sizing: border-box
+
+// Desktop rules
+@media only screen and (min-width: 600px)
+    .sidebar
+        min-width: 200px
+        min-height: 100%
