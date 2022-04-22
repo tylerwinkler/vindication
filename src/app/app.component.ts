@@ -25,9 +25,9 @@ export class AppComponent {
       return;
     }
     ++this.val;
-
-    if (this.val % 20 == 0) // 2 seconds
+    if (this.val % 20 == 0) { // 2 seconds
       this.advanceDay();
+    }
   }
 
   // setSpeed sets the speed to a clamped value between 0 (basically paused) and 3 for triple speed
@@ -62,6 +62,14 @@ export class AppComponent {
       ++this.year;
       this.month = 1;
     }
+
+    // You make $4000 + a random 0-1000 a day
+    this.money += 4000 + Math.random() * 1000;
+  }
+
+  formattedMoney(): string {
+    let str = Math.floor(this.money).toString();
+    return str.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
   }
 
   title = 'vindication';
@@ -75,5 +83,9 @@ export class AppComponent {
   // Speed represents the speed-up factor compared to the base 1x speed. 0.5 is half speed, 2 is double speed, etc.
   speed = 1;
 
+  money = 0;
+
   interval: number | null = null;
+
+  debug = false;
 }
