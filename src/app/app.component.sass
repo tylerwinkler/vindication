@@ -1,16 +1,14 @@
 :host
-    height: 100%
-    display: block
+    display: flex
+    width: 100%
 
 .sidebar
-    display: inline-block
     background-color: #222
     color: #ddd
     padding: 2px 8px
-    float: left
-    height: 100%
     box-sizing: border-box
     overflow: hidden
+    border-right: solid 1px black
 
 .sidebar-item
     margin: 12px 0px
@@ -27,9 +25,7 @@
 
 .sidebar-divider
     border-bottom: solid 2px #ddd
-    position: relative
-    left: -8px
-    width: calc(100% + 8px * 2)
+    width: 100%
 
 .time-control
     margin-right: 6px
@@ -39,12 +35,10 @@
     text-align: center
 
 .content
-    display: inline-block
-    height: 100%
-    width: calc(100% - 200px)
-    clear: both
+    flex-grow: 1
     padding: 0px 8px
     box-sizing: border-box
+    background-color: #444
 
 // Desktop rules
 @media only screen and (min-width: 600px)
