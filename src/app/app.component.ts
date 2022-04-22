@@ -12,8 +12,15 @@ export class AppComponent {
   ngOnInit(): void {
     AppComponent.app = this;
 
-    document.querySelectorAll(".sidebar-item.clickable").forEach((e)=>{e.addEventListener("click", ()=>{
-      document.querySelectorAll(".sidebar-item.clickable").forEach((e2)=>e2.classList.remove("active"));
+    let clickables = document.querySelectorAll(".sidebar-item.clickable");
+    clickables.forEach((e)=>{e.addEventListener("click", ()=>{
+      clickables.forEach((e2)=>e2.classList.remove("active"));
+      e.classList.add('active');
+    })});
+
+    let timeControls = document.querySelectorAll(".time-control");
+    timeControls.forEach((e)=>{e.addEventListener("click", ()=>{
+      timeControls.forEach((e2)=>e2.classList.remove("active"));
       e.classList.add('active');
     })});
 
