@@ -1,14 +1,11 @@
 <div class="sidebar">
     <p class="sidebar-item">
-        Money
+        ${{formattedMoney()}}
     </p>
     <p class="sidebar-item">
-        Date
+        {{month}}/{{day}}/{{year}}
     </p>
     <div class="time-control-group">
-        <span class="sidebar-item">
-            Time Control
-        </span><br>
         <img src="assets/pause.png" class="sidebar-item clickable time-control" alt="Pause" width="16" (click)="setSpeed(0)">
         <img src="assets/normal_speed.png" class="sidebar-item clickable time-control" alt="Play/1x Speed" width="16" (click)="setSpeed(1)">
         <img src="assets/double_speed.png" class="sidebar-item clickable time-control" alt="2x Speed" width="16" (click)="setSpeed(2)">
@@ -25,8 +22,5 @@
     </p>
 </div>
 <div class="content">
-    <h1>{{title}}</h1>
-    <p>{{val}}</p>
-    <p>Game date is: {{month}}/{{day}}/{{year}}</p>
-    <button (click)="togglePause()">{{paused?"Unpause":"Pause"}}</button>
+    <p *ngIf="debug">{{val}}</p>
 </div>
