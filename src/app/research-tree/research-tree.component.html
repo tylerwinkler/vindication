@@ -1,1 +1,28 @@
-<p>research-tree works!</p>
+<button (click)="selectTab('personnel')">Personnel</button>
+<button (click)="selectTab('')">Expansion</button>
+<button (click)="selectTab('')">Finances</button>
+<button (click)="selectTab('')">Etc</button>
+<div class="research-tree">
+    <div *ngIf="currentTab=='personnel'">
+        <div class="tier tier-1">
+            <span>Tier 1</span>
+            <button (click)="selectResearch(0)" class="finished">Wage Suppression I</button>
+            <button (click)="selectResearch(1)">Union Disinformation I</button>
+            <button (click)="selectResearch(2)">Satisfaction Boost I</button>
+        </div>
+        <div class="tier tier-2">
+            <span>Tier 2</span>
+            <button>Wage Suppression II</button>
+            <button disabled>Union Disinformation II</button>
+        </div>
+        <div class="tier tier-3">
+            <span>Tier 3</span>
+            <button disabled>Unionization Resistance I</button>
+        </div>
+        <div class="tier tier-4">
+            <span>Tier 4</span>
+            <button disabled>Union Harassment</button>
+        </div>
+    </div>
+</div>
+<app-research-detail [hidden]="currentResearch === -1"></app-research-detail>

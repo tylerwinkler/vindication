@@ -12,4 +12,14 @@ export class ResearchTreeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  selectTab(tabName: string): void {
+    this.currentTab = tabName;
+  }
+
+  selectResearch(researchId: number): void {
+    this.currentResearch = researchId;
+  }
+
+  currentTab = 'personnel';
+  currentResearch = -1;
 }

@@ -72,6 +72,12 @@ export class AppComponent {
     return str.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
   }
 
+  selectMenu(menuName: string): void {
+    this.menuSelected = menuName;
+  }
+
+  menuSelected = "";
+
   title = 'vindication';
   val = 0;
   paused = false;

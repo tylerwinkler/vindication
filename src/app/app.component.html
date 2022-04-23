@@ -11,16 +11,16 @@
         <img src="assets/double_speed.png" class="sidebar-item clickable time-control" alt="2x Speed" width="16" (click)="setSpeed(2)">
     </div>
     <div class="sidebar-divider"></div>
-    <p class="sidebar-item clickable">
+    <p class="sidebar-item clickable" (click)="selectMenu('research')">
         Research
     </p>
-    <p class="sidebar-item clickable">
+    <p class="sidebar-item clickable" (click)="selectMenu('personnel')">
         Personnel
     </p>
-    <p class="sidebar-item clickable">
+    <p class="sidebar-item clickable" (click)="selectMenu('departments')">
         Departments
     </p>
 </div>
 <div class="content">
-    <p *ngIf="debug">{{val}}</p>.
+    <app-research-tree *ngIf="menuSelected=='research'"></app-research-tree>
 </div>
