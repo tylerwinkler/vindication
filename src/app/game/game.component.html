@@ -46,7 +46,7 @@
 <div class="content">
     <app-research-tree *ngIf="menuSelected=='research'"></app-research-tree>
 </div>
-<div class="console" [hidden]="!debug">
+<div class="console" [hidden]="!app.debug">
     <label for="command">Command:</label>
     <input type="text" name="command" class="console-input">
 </div>

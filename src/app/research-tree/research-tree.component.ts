@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResearchDetailComponent } from '../research-detail/research-detail.component';
 
 @Component({
   selector: 'app-research-tree',

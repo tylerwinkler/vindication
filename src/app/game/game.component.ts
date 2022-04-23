@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ResearchTreeComponent } from '../research-tree/research-tree.component';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-game',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameComponent implements OnInit {
 
-  constructor() { }
+  constructor() {this.app = AppComponent.app; }
 
   ngOnInit(): void {
     let clickables = document.querySelectorAll(".sidebar-item.clickable:not(.time-control)");
@@ -122,6 +124,11 @@ export class GameComponent implements OnInit {
     }
   }
 
+  formattedMoney(): string {
+    let str = Math.floor(this.money).toString();
+    return str.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+  }
+
   selectMenu(menuName: string): void {
     this.menuSelected = menuName;
   }
@@ -147,7 +154,7 @@ export class GameComponent implements OnInit {
 
   interval: number | null = null;
 
-  debug = false;
+  app: AppComponent;
 
   // Times per second that the game ticks
   updateRate = 10;
