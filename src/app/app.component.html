@@ -22,5 +22,9 @@
     </p>
 </div>
 <div class="content">
-    <p *ngIf="debug">{{val}}</p>.
+    <p *ngIf="debug">{{val}}</p>
+</div>
+<div class="console" [hidden]="!debug">
+    <label for="command">Command:</label>
+    <input type="text" name="command" class="console-input">
 </div>
