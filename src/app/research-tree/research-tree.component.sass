@@ -1,7 +1,7 @@
 button
     border-radius: 0px
     border: solid 1px black
-    padding: 20px 5px
+    padding: 20px 0px 5px 5px
     width: 150px
     margin-right: 50px
     background-color: #333
@@ -19,10 +19,14 @@ button.finished
 
 .research-tree
 
-.tier span
+.tier > span
     color: #ddd
     margin-right: 15px
     font-size: 1.25em
+
+.research-title
+    display: block
+    padding-bottom: 16px
 
 .tier-1
     margin-top: 60px
@@ -30,3 +34,13 @@ button.finished
 .tier:not(.tier-1)
     margin-top: 30px
     
+svg
+    width: 16px
+    vertical-align: bottom
+
+button div
+    padding-top: 4px
+    border-top: solid 1px black
+
+.left
+    text-align: left
