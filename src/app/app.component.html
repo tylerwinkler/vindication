@@ -2,9 +2,12 @@
     <p class="sidebar-item">
         ${{formattedMoney()}}
     </p>
+    <div class="sidebar-divider"></div>
     <p class="sidebar-item">
         {{month}}/{{day}}/{{year}}
+        <br><span class="smaller-text">Week {{getWeek()}}</span>
     </p>
+    <div class="sidebar-divider"></div>
     <div class="time-control-group">
         <svg width="16.589mm" height="15.347mm" class="sidebar-item clickable time-control time-control-pause active" version="1.1" viewBox="0 0 16.589 15.347" xmlns="http://www.w3.org/2000/svg" (click)="setSpeed(0)">
             <g transform="translate(-.27275 -.29818)" fill="currentColor">
