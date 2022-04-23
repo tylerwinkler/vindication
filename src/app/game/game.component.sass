@@ -1,0 +1,46 @@
+@import 'src/_variables.sass'
+:host
+    display: flex
+    width: 100%
+
+.sidebar
+    background-color: $secondary-background-color
+    color: $primary-text-color
+    padding: 2px 8px
+    box-sizing: border-box
+    overflow: hidden
+    border-right: solid 1px black
+
+.sidebar-item
+    margin: 12px 0px
+    font-size: 1.4em
+    text-align: center
+
+.sidebar-item.clickable:hover
+    background-color: #333
+    cursor: pointer
+
+.sidebar-item.active
+    text-decoration: underline
+
+.sidebar-divider
+    border-bottom: solid 2px #ddd
+    width: 100%
+
+.time-control
+    margin-right: 6px
+    padding: 6px
+
+.time-control-group
+    text-align: center
+
+.content
+    flex-grow: 1
+    padding: 0px 8px
+    box-sizing: border-box
+
+// Desktop rules
+@media only screen and (min-width: 600px)
+    .sidebar
+        width: 200px
+        min-height: 100%
