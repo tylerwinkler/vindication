@@ -1,26 +1,2 @@
-<div class="sidebar">
-    <p class="sidebar-item">
-        ${{formattedMoney()}}
-    </p>
-    <p class="sidebar-item">
-        {{month}}/{{day}}/{{year}}
-    </p>
-    <div class="time-control-group">
-        <img src="assets/pause.png" class="sidebar-item clickable time-control" alt="Pause" width="16" (click)="setSpeed(0)">
-        <img src="assets/normal_speed.png" class="sidebar-item clickable time-control" alt="Play/1x Speed" width="16" (click)="setSpeed(1)">
-        <img src="assets/double_speed.png" class="sidebar-item clickable time-control" alt="2x Speed" width="16" (click)="setSpeed(2)">
-    </div>
-    <div class="sidebar-divider"></div>
-    <p class="sidebar-item clickable">
-        Research
-    </p>
-    <p class="sidebar-item clickable">
-        Personnel
-    </p>
-    <p class="sidebar-item clickable">
-        Departments
-    </p>
-</div>
-<div class="content">
-    <p *ngIf="debug">{{val}}</p>.
-</div>
+<app-main-menu *ngIf="activeState==='mainmenu'"></app-main-menu>
+<app-game *ngIf="activeState==='game'"></app-game>
