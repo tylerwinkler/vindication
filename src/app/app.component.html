@@ -2,9 +2,12 @@
     <p class="sidebar-item">
         ${{formattedMoney()}}
     </p>
+    <div class="sidebar-divider"></div>
     <p class="sidebar-item">
         {{month}}/{{day}}/{{year}}
+        <br><span class="smaller-text">Week {{getWeek()}}</span>
     </p>
+    <div class="sidebar-divider"></div>
     <div class="time-control-group">
         <img src="assets/pause.png" class="sidebar-item clickable time-control" alt="Pause" width="16" (click)="setSpeed(0)">
         <img src="assets/normal_speed.png" class="sidebar-item clickable time-control" alt="Play/1x Speed" width="16" (click)="setSpeed(1)">

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,10 @@ export class AppComponent {
       e.classList.add('active');
     })});
 
-   this.beginInterval();
+    // The game should start paused
+    this.paused = true;
+
+    this.beginInterval();
   }
 
   tick(): void {
@@ -72,6 +75,10 @@ export class AppComponent {
     return str.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
   }
 
+  getWeek(): number {
+    return 1 + Math.floor(this.daysPassed / 7); 
+  }
+
   title = 'vindication';
   val = 0;
   paused = false;
@@ -79,6 +86,7 @@ export class AppComponent {
   day = 1;
   month = 1;
   year = 1970;
+  daysPassed = 0;
 
   // Speed represents the speed-up factor compared to the base 1x speed. 0.5 is half speed, 2 is double speed, etc.
   speed = 1;
@@ -88,4 +96,10 @@ export class AppComponent {
   interval: number | null = null;
 
   debug = false;
+
+  // Times per second that the game ticks
+  updateRate = 10;
+
+  // How many ticks before a day passes. day length in real seconds = ticksPerDay / updateRate
+  ticksPerDay = 20;
 }
