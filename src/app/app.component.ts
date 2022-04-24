@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { Game } from './game';
 import { GameService } from './game.service';
+import { NewGameBuilder } from './new-game-builder';
 
 @Component({
   selector: 'app-root',
@@ -27,10 +28,9 @@ export class AppComponent {
 
   changeState(state: string): void {
     this.activeState = state;
-    console.log(state);
   }
   
-  activeState = 'mainmenu';
+  activeState = 'mainMenu';
 
   title = 'vindication';
 

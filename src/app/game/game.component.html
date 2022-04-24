@@ -1,10 +1,13 @@
 <div class="sidebar">
+    <div class="sidebar-item">
+        <input class="borderless large dark centered" [(ngModel)]="game.storeName">
+    </div>
     <p class="sidebar-item">
         ${{formattedMoney()}}
     </p>
     <div class="sidebar-divider"></div>
     <p class="sidebar-item">
-        {{month}}/{{day}}/{{year}}
+        {{game.month}}/{{game.day}}/{{game.year}}
         <br><span class="smaller-text">Week {{getWeek()}}</span>
     </p>
     <div class="sidebar-divider"></div>
@@ -42,6 +45,8 @@
     <p class="sidebar-item clickable" (click)="selectMenu('departments')">
         Departments
     </p>
+    <h1 (click)="saveGame()">Save</h1>
+    <h1 (click)="saveGameAs()">Save As</h1>
 </div>
 <div class="content">
     <app-research-tree *ngIf="menuSelected=='research'"></app-research-tree>

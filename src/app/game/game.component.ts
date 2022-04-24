@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ResearchTreeComponent } from '../research-tree/research-tree.component';
 import { AppComponent } from '../app.component';
-import { MySave } from '../saves/my-save';
-import { LocalStorageSaveWriter } from '../saves/local-storage-save-writer';
 import { Game } from '../game';
 import { GameService } from '../game.service';
+import { LocalStorageSaveManager } from '../saves/local-storage-save-manager';
+import { Save } from '../saves/save';
 
 @Component({
   selector: 'app-game',
@@ -74,10 +74,7 @@ export class GameComponent implements OnInit {
       this.beginInterval();
     }
     else if (cmdArr[0] == "save".toLowerCase()) {
-      let s = new MySave();
-      let sw = new LocalStorageSaveWriter();
-      s.money = this.game.money;
-      sw.serialize(s);
+      this.saveGame();
     }
 
     return true;
@@ -112,18 +109,18 @@ export class GameComponent implements OnInit {
     // We cant advance forward a negative amount of days
     daysToAdvance = Math.max(0, daysToAdvance);
 
-    this.day += daysToAdvance;
-    this.daysPassed += daysToAdvance;
+    this.game.day += daysToAdvance;
+    this.game.daysPassed += daysToAdvance;
 
-    while (this.day > 30) {
-      ++this.month;
-      this.day -= 30;
+    while (this.game.day > 30) {
+      ++this.game.month;
+      this.game.day -= 30;
     }
 
-    while (this.month > 12) {
-      ++this.year;
-      this.month -= 12;
-      this.daysPassed -= 360;
+    while (this.game.month > 12) {
+      ++this.game.year;
+      this.game.month -= 12;
+      this.game.daysPassed -= 360;
     }
 
     // Simulate the days passing for RNG purposes
@@ -143,7 +140,46 @@ export class GameComponent implements OnInit {
   }
 
   getWeek(): number {
-    return 1 + Math.floor(this.daysPassed / 7); 
+    return 1 + Math.floor(this.game.daysPassed / 7); 
+  }
+
+  saveGameAs(): void {
+    let results = prompt("Enter a name for this save");
+      if (results && results.trim() !== "") {
+        this.game.saveName = results!;
+      }
+      else {
+        alert("Save must have a non-empty name");
+        return;
+      }
+
+      this.saveGame();
+  }
+
+  saveGame(): void {
+    if (this.game.saveName.trim() === "") {
+      let results = prompt("Enter a name for this save");
+      if (results && results.trim() !== "") {
+        this.game.saveName = results!;
+      }
+      else {
+        alert("Save must have a non-empty name");
+        return;
+      }
+    }
+
+    let s: Save = {
+      version: 1,
+      saveName: this.game.saveName,
+      storeName: this.game.storeName,
+      money: this.game.money,
+      day: this.game.day,
+      month: this.game.month,
+      year: this.game.year,
+      daysPassed: this.game.daysPassed
+    };
+
+    new LocalStorageSaveManager(localStorage).putSave(s.saveName, s);
   }
 
   title = 'vindication';
@@ -151,15 +187,10 @@ export class GameComponent implements OnInit {
   paused = false;
   menuSelected = "";
 
-  day = 1;
-  month = 1;
-  year = 1970;
-  daysPassed = 0;
-
   // Speed represents the speed-up factor compared to the base 1x speed. 0.5 is half speed, 2 is double speed, etc.
   speed = 1;
 
-  interval: number | null = null;
+  interval: null | ReturnType<typeof setTimeout> = null
 
   app: AppComponent;
 
