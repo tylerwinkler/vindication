@@ -4,6 +4,7 @@ import { AppComponent } from '../app.component';
 import { MySave } from '../saves/my-save';
 import { LocalStorageSaveWriter } from '../saves/local-storage-save-writer';
 import { Game } from '../game';
+import { GameService } from '../game.service';
 
 @Component({
   selector: 'app-game',
@@ -11,7 +12,7 @@ import { Game } from '../game';
   styleUrls: ['./game.component.sass']
 })
 export class GameComponent implements OnInit {
-  constructor(private game: Game) {this.app = AppComponent.app; }
+  constructor(private gameService: GameService) {this.app = AppComponent.app; this.game = gameService.get();}
 
   ngOnInit(): void {
     let clickables = document.querySelectorAll(".sidebar-item.clickable:not(.time-control)");
@@ -161,6 +162,8 @@ export class GameComponent implements OnInit {
   interval: number | null = null;
 
   app: AppComponent;
+
+  game: Game;
 
   // Times per second that the game ticks
   updateRate = 10;

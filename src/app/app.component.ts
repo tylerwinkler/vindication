@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { Game } from './game';
 import { GameService } from './game.service';
 
 @Component({
@@ -9,6 +10,8 @@ import { GameService } from './game.service';
 
 export class AppComponent {
   static app: AppComponent;
+
+  constructor(private gameService: GameService) {this.game = gameService.get()}
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
@@ -32,4 +35,6 @@ export class AppComponent {
   title = 'vindication';
 
   debug = false;
+
+  game: Game;
 }

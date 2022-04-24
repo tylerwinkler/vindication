@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { Game } from '../game';
+import { GameService } from '../game.service';
 import { LocalStorageSaveReader } from '../saves/local-storage-save-reader';
 import { MySave } from '../saves/my-save';
 
@@ -11,7 +12,7 @@ import { MySave } from '../saves/my-save';
 })
 export class LoadGameComponent implements OnInit {
 
-  constructor() { }
+  constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
   }
@@ -21,9 +22,7 @@ export class LoadGameComponent implements OnInit {
   }
 
   loadGame(): void {
-    let game = new Game();
-    game.money = this.getSaveMoney();
-
-    AppComponent.app.bindGame(game);
+    this.gameService.get().money = this.getSaveMoney();
+    AppComponent.app.changeState("game");
   }
 }

@@ -23,7 +23,7 @@ import { Game } from './game';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [Game],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
