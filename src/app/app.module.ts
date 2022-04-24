@@ -7,6 +7,8 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 import { ResearchTreeComponent } from './research-tree/research-tree.component';
 import { ResearchDetailComponent } from './research-detail/research-detail.component';
 import { GameComponent } from './game/game.component';
+import { LoadGameComponent } from './load-game/load-game.component';
+import { Game } from './game';
 
 @NgModule({
   declarations: [
@@ -14,13 +16,14 @@ import { GameComponent } from './game/game.component';
     MainMenuComponent,
     ResearchTreeComponent,
     ResearchDetailComponent,
-    GameComponent
+    GameComponent,
+    LoadGameComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [Game],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

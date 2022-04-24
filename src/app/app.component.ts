@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { GameService } from './game.service';
 
 @Component({
   selector: 'app-root',
@@ -23,8 +24,9 @@ export class AppComponent {
 
   changeState(state: string): void {
     this.activeState = state;
+    console.log(state);
   }
-
+  
   activeState = 'mainmenu';
 
   title = 'vindication';

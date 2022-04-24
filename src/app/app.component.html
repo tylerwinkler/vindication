@@ -1,2 +1,3 @@
 <app-main-menu *ngIf="activeState==='mainmenu'"></app-main-menu>
-<app-game *ngIf="activeState==='game'"></app-game>
+<app-load-game *ngIf="activeState==='loadgame'"></app-load-game>
+<app-game *ngIf="activeState==='game'" [game]="getGame()"></app-game>

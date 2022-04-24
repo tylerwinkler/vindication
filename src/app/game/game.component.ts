@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ResearchTreeComponent } from '../research-tree/research-tree.component';
 import { AppComponent } from '../app.component';
+import { MySave } from '../saves/my-save';
+import { LocalStorageSaveWriter } from '../saves/local-storage-save-writer';
+import { Game } from '../game';
 
 @Component({
   selector: 'app-game',
@@ -8,8 +11,7 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./game.component.sass']
 })
 export class GameComponent implements OnInit {
-
-  constructor() {this.app = AppComponent.app; }
+  constructor(private game: Game) {this.app = AppComponent.app; }
 
   ngOnInit(): void {
     let clickables = document.querySelectorAll(".sidebar-item.clickable:not(.time-control)");
@@ -70,6 +72,12 @@ export class GameComponent implements OnInit {
       this.speed = speed;
       this.beginInterval();
     }
+    else if (cmdArr[0] == "save".toLowerCase()) {
+      let s = new MySave();
+      let sw = new LocalStorageSaveWriter();
+      s.money = this.game.money;
+      sw.serialize(s);
+    }
 
     return true;
   }
@@ -120,12 +128,12 @@ export class GameComponent implements OnInit {
     // Simulate the days passing for RNG purposes
     for (var i = 0; i < daysToAdvance; ++i) {
       // You make $4000 + a random 0-1000 a day
-      this.money += 4000 + Math.random() * 1000;
+      this.game.money += 4000 + Math.random() * 1000;
     }
   }
 
   formattedMoney(): string {
-    let str = Math.floor(this.money).toString();
+    let str = Math.floor(this.game.money).toString();
     return str.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
   }
 
@@ -149,8 +157,6 @@ export class GameComponent implements OnInit {
 
   // Speed represents the speed-up factor compared to the base 1x speed. 0.5 is half speed, 2 is double speed, etc.
   speed = 1;
-
-  money = 0;
 
   interval: number | null = null;
 
