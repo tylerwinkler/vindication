@@ -9,6 +9,7 @@ import { ResearchDetailComponent } from './research-detail/research-detail.compo
 import { GameComponent } from './game/game.component';
 import { LoadGameComponent } from './load-game/load-game.component';
 import { Game } from './game';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { Game } from './game';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

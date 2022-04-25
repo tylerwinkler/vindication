@@ -1,4 +1,7 @@
 <div class="sidebar">
+    <div class="sidebar-item">
+        <input class="borderless large dark centered" [(ngModel)]="game.storeName">
+    </div>
     <p class="sidebar-item">
         ${{formattedMoney()}}
     </p>
@@ -43,6 +46,7 @@
         Departments
     </p>
     <h1 (click)="saveGame()">Save</h1>
+    <h1 (click)="saveGameAs()">Save As</h1>
 </div>
 <div class="content">
     <app-research-tree *ngIf="menuSelected=='research'"></app-research-tree>

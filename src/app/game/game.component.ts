@@ -143,6 +143,14 @@ export class GameComponent implements OnInit {
     return 1 + Math.floor(this.game.daysPassed / 7); 
   }
 
+  saveGameAs(): void {
+    let results = prompt("Enter a name for this save");
+    if (results) {
+      this.game.saveName = results;
+      this.saveGame();
+    }
+  }
+
   saveGame(): void {
     if (this.game.saveName === "") {
       let results = prompt("Enter a name for this save");
