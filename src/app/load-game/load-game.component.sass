@@ -1,9 +1,40 @@
 @import 'src/_variables.sass'
 
+:host
+    width: 100%
+
+.save-list
+    float: right
+
+h1
+    clear: both
+    display: inline
+
 li
     list-style: none
+    padding: 15px
+    background-color: $secondary-background-color
+    margin-bottom: 10px
+    border-radius: 2px
 
 .badge
     padding: 2px 4px
-    background-color: $secondary-background-color
+    background-color: $active-state-color
     margin-right: 5px
+    border-radius: 2px
+
+.delete-button
+    background-color: #a00
+    color: #fff
+    border-radius: 2px
+    border: solid 1px red
+    float: right
+
+.load-button
+    background-color: #0a0
+    color: #fff
+    border-radius: 2px
+    border: solid 1px green
+
+button
+    cursor: pointer

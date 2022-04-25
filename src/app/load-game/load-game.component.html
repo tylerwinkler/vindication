@@ -1,3 +1,13 @@
-<ul>
-    <li (click)="loadGame()"><span class="badge">1</span>Money: {{getSaveMoney()}}</li>
+<h1>Select a Save</h1>
+<ul class="save-list">
+    <li *ngFor="let save of saves; let i = index">
+        <div class="top-row">
+            <span class="badge">{{i + 1}}</span>
+            {{save.saveName}}
+        </div>
+        <div>Store Name: {{save.storeName}} | Money: {{formatCurrency(save.money)}}</div>
+        <div>Store Date: {{save.month}}/{{save.day}}/{{save.year}}</div>
+        <button (click)="loadGame(save)" class="load-button">Load</button>
+        <button (click)="deleteSave(save)" class="delete-button">Delete</button>
+    </li>
 </ul>

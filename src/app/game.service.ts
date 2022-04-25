@@ -12,5 +12,9 @@ export class GameService {
     return GameService.game;
   }
 
+  set(game: Game) {
+    GameService.game = game;
+  }
+
   static game = new Game();
 }
