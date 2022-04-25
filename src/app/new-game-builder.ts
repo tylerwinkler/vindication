@@ -1,7 +1,7 @@
 import { Game } from "./game";
 import { GameBuilder } from "./game-builder";
 
-export class NewGameBuilder implements GameBuilder{
+export class NewGameBuilder implements GameBuilder {
     build(): Game {
         let g = new Game();
         g.money = NewGameBuilder.StartingMoney;
