@@ -145,20 +145,25 @@ export class GameComponent implements OnInit {
 
   saveGameAs(): void {
     let results = prompt("Enter a name for this save");
-    if (results) {
-      this.game.saveName = results;
-      this.saveGame();
-    }
-  }
-
-  saveGame(): void {
-    if (this.game.saveName === "") {
-      let results = prompt("Enter a name for this save");
-      if (results) {
+      if (results && results.trim() !== "") {
         this.game.saveName = results!;
       }
       else {
-        alert("Game could not be saved");
+        alert("Save must have a non-empty name");
+        return;
+      }
+
+      this.saveGame();
+  }
+
+  saveGame(): void {
+    if (this.game.saveName.trim() === "") {
+      let results = prompt("Enter a name for this save");
+      if (results && results.trim() !== "") {
+        this.game.saveName = results!;
+      }
+      else {
+        alert("Save must have a non-empty name");
         return;
       }
     }
