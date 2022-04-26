@@ -50,6 +50,7 @@
 </div>
 <div class="content">
     <app-research-tree *ngIf="menuSelected=='research'"></app-research-tree>
+    <app-personnel *ngIf="menuSelected=='personnel'"></app-personnel>
 </div>
 <div class="console" [hidden]="!app.debug">
     <label for="command">Command:</label>

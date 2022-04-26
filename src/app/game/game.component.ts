@@ -5,6 +5,8 @@ import { Game } from '../game';
 import { GameService } from '../game.service';
 import { LocalStorageSaveManager } from '../saves/local-storage-save-manager';
 import { Save } from '../saves/save';
+import { PersonnelComponent } from '../personnel/personnel.component';
+import { Employee } from '../employee';
 
 @Component({
   selector: 'app-game',
@@ -137,6 +139,10 @@ export class GameComponent implements OnInit {
 
   selectMenu(menuName: string): void {
     this.menuSelected = menuName;
+  }
+
+  hireEmployee(){
+    let emp = new Employee(1, "John Doe");
   }
 
   getWeek(): number {
