@@ -44,8 +44,16 @@ export class NewGameComponent implements OnInit {
     this.storeSize = size;
   }
 
+  formattedMoney(val: number): string {
+    let str = Math.floor(val).toString();
+    return '$' + str.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+  }
+
   storeSize = 'none';
   storeName = '';
+
+  readonly startingMoney_S = NewGameComponent.StartingMoney_Small;
+  readonly startingMoney_L = NewGameComponent.StartingMoney_Large;
   
   private static StartingMoney_Small = 1000000; // $1,000,000
   private static StartingMoney_Large = 500000; // $500,000
