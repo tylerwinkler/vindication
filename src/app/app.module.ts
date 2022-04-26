@@ -8,10 +8,12 @@ import { ResearchTreeComponent } from './research-tree/research-tree.component';
 import { ResearchDetailComponent } from './research-detail/research-detail.component';
 import { GameComponent } from './game/game.component';
 import { LoadGameComponent } from './load-game/load-game.component';
-import { Game } from './game';
 import { FormsModule } from '@angular/forms';
 import { PersonnelComponent } from './personnel/personnel.component';
 import { NewGameComponent } from './new-game/new-game.component';
+import { StoreComponent } from './store/store.component';
+import { FinancesComponent } from './finances/finances.component';
+import { MoneyComponent } from './money/money.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,10 @@ import { NewGameComponent } from './new-game/new-game.component';
     GameComponent,
     LoadGameComponent,
     PersonnelComponent,
-    NewGameComponent
+    NewGameComponent,
+    StoreComponent,
+    FinancesComponent,
+    MoneyComponent
   ],
   imports: [
     BrowserModule,

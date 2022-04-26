@@ -1,9 +1,10 @@
 <div class="sidebar">
     <div class="sidebar-item">
-        <input class="borderless large dark centered" [(ngModel)]="game.storeName">
+        <input class="borderless large dark centered" [(ngModel)]="game.store.name">
     </div>
     <p class="sidebar-item">
-        ${{formattedMoney()}}
+        <app-money [money]=game.store.money></app-money>
+        <br><app-money class="smaller-text" [ngClass]="(getFlow()>0)?'pos':(getFlow()<0)?'neg':''" [money]=getFlow()></app-money>
     </p>
     <div class="sidebar-divider"></div>
     <p class="sidebar-item">
@@ -46,15 +47,18 @@
         Departments
     </p>
     <div class="sidebar-divider"></div>
-    <h1 class="sidebar-item clickable" (click)="saveGame()">Save</h1>
-    <h1 class="sidebar-item clickable" (click)="saveGameAs()">Save As</h1>
-    <h1 class="sidebar-item clickable" (click)="saveAndExit()">Main Menu</h1>
+    <p class="sidebar-item clickable misc" (click)="saveGame()">Save</p>
+    <p class="sidebar-item clickable misc" (click)="saveGameAs()">Save As</p>
+    <p class="sidebar-item clickable misc" (click)="saveAndExit()">Main Menu</p>
+    <p class="sidebar-item clickable misc" (click)="addExpense(500)">Add Expense</p>
+    <p class="sidebar-item clickable misc" (click)="game.store.addSqFt(12000)">Add 12000 Sqft</p>
 </div>
 <div class="content">
     <app-research-tree *ngIf="menuSelected=='research'"></app-research-tree>
     <app-personnel *ngIf="menuSelected=='personnel'"></app-personnel>
 </div>
-<div class="console" [hidden]="!app.debug">
+<div class="console" [hidden]="!isDebug()">
     <label for="command">Command:</label>
     <input type="text" name="command" class="console-input">
 </div>
+<app-finances></app-finances>

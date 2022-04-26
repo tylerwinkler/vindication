@@ -17,12 +17,12 @@ export class PersonnelComponent implements OnInit {
   }
 
   hireEmployee(){
-    this.emp = this.gameService.get().hireEmployee();
+    this.emp = this.gameService.get().store.hireEmployee();
   }
   emp: Employee | null = null
 
   fireEmployee(){
-    this.gameService.get().fireEmployee();
+    this.gameService.get().store.fireEmployee(this.emp!);
     this.emp = null;
   }
 }

@@ -3,23 +3,23 @@ import { GameBuilder } from "./game-builder";
 
 export class NewGameBuilder implements GameBuilder {
     setMoney(money: number): NewGameBuilder {
-        this.money = money;
+        this.game.store.money = money;
         return this;
     }
 
     setName(name: string): NewGameBuilder {
-        this.storeName = name;
+        this.game.store.name = name;
         return this;
     }
 
-    build(): Game {
-        let g = new Game();
-        g.money = this.money;
-        g.storeName = this.storeName;
+    /*addDepartment(department: Department): NewGameBuilder {
+        this.departments.push(department);
+    }*/
 
-        return g;
+    build(): Game {
+        this.game.store.updateUtilities();
+        return this.game;
     }
 
-    money: number = 0;
-    storeName: string = "The Store With No Name";
+    private game: Game = new Game();
 }

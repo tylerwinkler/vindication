@@ -21,13 +21,13 @@ export class NewGameComponent implements OnInit {
   startNewGame(): void {
     if (this.storeSize === 'small') {
       this.gameService.set(new NewGameBuilder()
-      .setMoney(NewGameComponent.StartingMoney_Small)
+      .setMoney(NewGameComponent.StartingMoney)
       .setName(this.storeName)
       .build());
     }
     else if (this.storeSize === 'large') {
       this.gameService.set(new NewGameBuilder()
-      .setMoney(NewGameComponent.StartingMoney_Large)
+      .setMoney(NewGameComponent.StartingMoney)
       .setName(this.storeName)
       .build());
     }
@@ -52,9 +52,7 @@ export class NewGameComponent implements OnInit {
   storeSize = 'none';
   storeName = '';
 
-  readonly startingMoney_S = NewGameComponent.StartingMoney_Small;
-  readonly startingMoney_L = NewGameComponent.StartingMoney_Large;
+  availableLoan = NewGameComponent.StartingMoney;
   
-  private static StartingMoney_Small = 1000000; // $1,000,000
-  private static StartingMoney_Large = 500000; // $500,000
+  private static StartingMoney = 1000000; // $1,000,000
 }

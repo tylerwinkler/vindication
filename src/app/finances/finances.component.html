@@ -1,0 +1,14 @@
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let finance of finances">
+            <td>{{finance.name}}</td>
+            <td><app-money [money]=finance.value></app-money></td>
+        </tr>
+    </tbody>
+</table>

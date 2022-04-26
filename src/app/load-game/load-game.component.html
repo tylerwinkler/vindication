@@ -5,7 +5,7 @@
             <span class="badge">{{i + 1}}</span>
             {{save.saveName}}
         </div>
-        <div>Store Name: {{save.storeName}} | Money: {{formatCurrency(save.money)}}</div>
+        <div>Store Name: {{save.storeName}} | Money: <app-money [money]=save.money></app-money></div>
         <div>Store Date: {{save.month}}/{{save.day}}/{{save.year}}</div>
         <button (click)="loadGame(save)" class="load-button">Load</button>
         <button (click)="deleteSave(save)" class="delete-button">Delete</button>

@@ -7,6 +7,7 @@ import { LocalStorageSaveManager } from '../saves/local-storage-save-manager';
 import { Save } from '../saves/save';
 import { PersonnelComponent } from '../personnel/personnel.component';
 import { Employee } from '../employee';
+import { FinancialLineItem, Store } from '../store';
 
 @Component({
   selector: 'app-game',
@@ -14,10 +15,10 @@ import { Employee } from '../employee';
   styleUrls: ['./game.component.sass']
 })
 export class GameComponent implements OnInit {
-  constructor(private gameService: GameService) {this.app = AppComponent.app; this.game = gameService.get();}
+  constructor(private gameService: GameService) {this.game = this.gameService.get();}
 
   ngOnInit(): void {
-    let clickables = document.querySelectorAll(".sidebar-item.clickable:not(.time-control)");
+    let clickables = document.querySelectorAll(".sidebar-item.clickable:not(.time-control):not(.misc)");
     clickables.forEach((e)=>{e.addEventListener("click", ()=>{
       clickables.forEach((e2)=>e2.classList.remove("active"));
       e.classList.add('active');
@@ -114,9 +115,15 @@ export class GameComponent implements OnInit {
     this.game.day += daysToAdvance;
     this.game.daysPassed += daysToAdvance;
 
+    if (this.game.daysPassed % 6 == 0)
+    {
+      this.game.store.processEndOfWeek();
+    }
+
     while (this.game.day > 30) {
       ++this.game.month;
       this.game.day -= 30;
+      this.game.store.processEndOfMonth();
     }
 
     while (this.game.month > 12) {
@@ -128,12 +135,13 @@ export class GameComponent implements OnInit {
     // Simulate the days passing for RNG purposes
     for (var i = 0; i < daysToAdvance; ++i) {
       // You make $4000 + a random 0-1000 a day
-      this.game.money += 4000 + Math.random() * 1000;
+      //this.game.store.money += 4000 + Math.random() * 1000;
+      this.game.store.money += this.getFlow();
     }
   }
 
   formattedMoney(): string {
-    let str = Math.floor(this.game.money).toString();
+    let str = Math.floor(this.game.store.money).toString();
     return str.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
   }
 
@@ -142,7 +150,7 @@ export class GameComponent implements OnInit {
   }
 
   getWeek(): number {
-    return 1 + Math.floor(this.game.daysPassed / 7); 
+    return 1 + Math.floor(this.game.daysPassed / 6); 
   }
 
   saveGameAs(): void {
@@ -173,8 +181,8 @@ export class GameComponent implements OnInit {
     let s: Save = {
       version: 1,
       saveName: this.game.saveName,
-      storeName: this.game.storeName,
-      money: this.game.money,
+      storeName: this.game.store.name,
+      money: this.game.store.money,
       day: this.game.day,
       month: this.game.month,
       year: this.game.year,
@@ -184,13 +192,32 @@ export class GameComponent implements OnInit {
     new LocalStorageSaveManager(localStorage).putSave(s.saveName, s);
   }
 
+  isDebug(): boolean {
+    return AppComponent.app.debug;
+  }
+
+  addExpense(val: number): void {
+    let ass = new FinancialLineItem("Misc", -val);
+    if (this.game.store.hasFinancialItem(ass)) {
+      this.game.store.updateFinancialItem(ass, true);
+    }
+    else {
+      this.game.store.insertFinancialItem(ass);
+    }
+  }
+
   saveAndExit(): void {
     this.saveGame();
-    this.app.changeState('mainMenu');
+    AppComponent.app.changeState('mainMenu');
   }
-  
 
-  title = 'vindication';
+  getFlow(): number {
+    let n = 0;
+    this.game.store.getFinances().forEach(e => n += e.value);
+
+    return n;
+  }
+
   val = 0;
   paused = false;
   menuSelected = "";
@@ -199,8 +226,6 @@ export class GameComponent implements OnInit {
   speed = 1;
 
   interval: null | ReturnType<typeof setTimeout> = null
-
-  app: AppComponent;
 
   game: Game;
 
