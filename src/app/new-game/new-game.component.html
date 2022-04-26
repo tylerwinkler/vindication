@@ -1,0 +1,15 @@
+<div class="lg-6 center"><h1>New Game</h1>
+    <p>Hello player,<br>I am happy to announce that your business loan has been approved by LoansMart. I have been appointed to serve as your advisor through your business endevours to reduce the risk to LoansMart.</p>
+    <p>As previously discussed, the loan we are extending to you can be used to <span class="important">buy a small store</span> with money left over to get a comfortable start, or you may spend a larger amount to <span class="important">buy a larger store.</span></p>
+    <hr>
+    <p>1. What name did you have in mind for the store?</p>
+    <label for="store-name">Store Name:</label>
+    <input type="text" [(ngModel)]="storeName" id="store-name">
+    <p>2. Which size store would you like to start with?</p>
+    <button class="button store-size-button" #refSmallBtn (click)="setStoreSize(refSmallBtn, 'small')">Small store and <span class="important money">{{formattedMoney(startingMoney_S)}}</span></button>
+    <button class="button store-size-button" #refLargeBtn (click)="setStoreSize(refLargeBtn, 'large')">Large store and <span class="important money">{{formattedMoney(startingMoney_L)}}</span></button>
+    <br>
+    <br>
+    <button class="button controls-button danger" (click)="goToMainMenu()">Go Back</button>
+    <button class="button controls-button good start-button" (click)="startNewGame()">Start Managing My Store</button>
+</div>

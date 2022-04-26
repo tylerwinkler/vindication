@@ -1,0 +1,70 @@
+@import 'src/_variables.sass'
+
+:host
+    width: 100%
+    line-height: 1.5em
+
+.lg-6
+    width: 50%
+
+.center
+    margin: 0 auto
+
+.important
+    font-weight: bold
+    text-decoration: underline
+
+input
+    background-color: $secondary-background-color
+    color: $primary-text-color
+    border: solid 1px $secondary-text-color
+    border-radius: 3px
+    margin-left: 10px
+    font-size: large
+    box-sizing: border-box
+
+input:focus
+    outline-style: none
+    border: solid 1px $active-state-color
+
+.money
+    color: $money-positive-color
+
+.button
+    background-color: $secondary-background-color
+    color: $primary-text-color
+    border-style: none
+    cursor: pointer
+    border-radius: 2px
+
+.store-size-button
+    height: 60px
+    width: 200px
+    margin-right: 10px
+
+.button:hover
+    filter: brightness(80%)
+
+.store-size-button.active
+    border: solid 2px $active-state-color
+
+.controls-button
+    margin-right: 10px
+    padding: 10px
+    border: solid 1px black
+
+.danger
+    background-color: #700
+    border-color: #a00
+
+.good
+    background-color: #070
+    border-color: #0a0
+
+.start-button
+    float: right
+
+// Mobile override
+@media only screen and (max-width: 600px)
+    .lg-6
+        width: 100%

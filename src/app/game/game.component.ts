@@ -184,6 +184,12 @@ export class GameComponent implements OnInit {
     new LocalStorageSaveManager(localStorage).putSave(s.saveName, s);
   }
 
+  saveAndExit(): void {
+    this.saveGame();
+    this.app.changeState('mainMenu');
+  }
+  
+
   title = 'vindication';
   val = 0;
   paused = false;

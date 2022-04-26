@@ -11,6 +11,7 @@ import { LoadGameComponent } from './load-game/load-game.component';
 import { Game } from './game';
 import { FormsModule } from '@angular/forms';
 import { PersonnelComponent } from './personnel/personnel.component';
+import { NewGameComponent } from './new-game/new-game.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PersonnelComponent } from './personnel/personnel.component';
     ResearchDetailComponent,
     GameComponent,
     LoadGameComponent,
-    PersonnelComponent
+    PersonnelComponent,
+    NewGameComponent
   ],
   imports: [
     BrowserModule,
