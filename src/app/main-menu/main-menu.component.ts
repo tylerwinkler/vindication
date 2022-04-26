@@ -18,8 +18,7 @@ export class MainMenuComponent implements OnInit {
   }
 
   startNewGame(): void {
-    this.gameService.set(new NewGameBuilder().build());
-    this.app.changeState("playGame");
+    this.app.changeState("newGame");
   }
 
   openLoadGameMenu(): void {

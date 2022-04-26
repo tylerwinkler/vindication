@@ -10,6 +10,7 @@ import { GameComponent } from './game/game.component';
 import { LoadGameComponent } from './load-game/load-game.component';
 import { Game } from './game';
 import { FormsModule } from '@angular/forms';
+import { NewGameComponent } from './new-game/new-game.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     ResearchTreeComponent,
     ResearchDetailComponent,
     GameComponent,
-    LoadGameComponent
+    LoadGameComponent,
+    NewGameComponent
   ],
   imports: [
     BrowserModule,

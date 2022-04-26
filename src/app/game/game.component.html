@@ -45,8 +45,10 @@
     <p class="sidebar-item clickable" (click)="selectMenu('departments')">
         Departments
     </p>
-    <h1 (click)="saveGame()">Save</h1>
-    <h1 (click)="saveGameAs()">Save As</h1>
+    <div class="sidebar-divider"></div>
+    <h1 class="sidebar-item clickable" (click)="saveGame()">Save</h1>
+    <h1 class="sidebar-item clickable" (click)="saveGameAs()">Save As</h1>
+    <h1 class="sidebar-item clickable" (click)="saveAndExit()">Main Menu</h1>
 </div>
 <div class="content">
     <app-research-tree *ngIf="menuSelected=='research'"></app-research-tree>
