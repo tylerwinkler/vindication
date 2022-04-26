@@ -7,15 +7,17 @@ Everyone starts with a 0/100 in a skill when they are higher, unless previous wo
 Employees would be promoteable to new positions as needed/created and their levels would remain.
 Management gain traits upon promotion and possibly improve these traits as they "level up". Outside hires of "professional managers" come with a trait already determined.
 Management are the only traited workers - makes them a superior asset.
-MAYBE EVERYONE HAS TRAITS AND MANAGMENT GET A SPECIAL MANAGEMENT TRAIT.
+MAYBE EVERYONE HAS TRAITS AND MANAGMENT GET A SPECIAL MANAGEMENT TRAIT. — send them to training for X amount of weeks and by the end of it they come out with a specific type of trait, can try to influence the trait by sending them to a certain type of training. Kind of like crusader kings education but maybe like a moba build variety option - play with that idea later.
 
 Structure:
 The store is structured as a singular body with numerous departments of the whole body. I.e. provinces within a country on an rts.
+Start with a small business loan of $1m (maybe variable to adjust risk/difficulty)
 The store will begin with only a couple core departments.
-At start of game the player is allowed to choose which type of store to start with: either Grocery or GM. These will have about 3 related starting departments.
+At start of game the player is allowed to choose which type of store to start with: either Grocery or GM. Both cost 500k to build. These will have up to 2 additional related starting departments costing 200k each.
 Additional depaartments can be added by first researching it then paying to add it (construction and initial set up).
 Stores will also include "back-of-house offices" to influence policies and what not.
 The research office DOES NOT start in either version of the beginning store. It can be built without research but costs money and "expansion construction" time like all others will.
+You will need to hire starting staff to man the departments so the player will need to consider that from their starting money.
 
 "Back-of-house" offices (BOH):
 The store will include additional back-of-house offices which will fulfill the role of admin, Invoice, Receiving, Personnel, and others.
@@ -29,10 +31,10 @@ Operations will unlock new policies that will improve efficiency or reduce cost 
 Personnel will unlock employee specific researches. One branch can be a management specific tree which may include unlocking additional management slots for hire. Same for hourly employees. OR the hire quantities could be in their own branch or as seperate free floating branches. Depends on how we structure the flow. If it makes sense to limit hiring behind a progressive "unlock tree" then they will be locked within a branch.
 
 Story/Flow:
-Start off as a small "mom and pop" of 1 of 2 types (Grocery or GM). You get to grow and expand as your profits and success allows. As you hit new "classifciations" your store is restructured and you gain new benefits/deficiencies. 
+Start off as a small "mom and pop" of 1 of 2 types (Grocery or GM). You get to grow and expand as your profits and success allows. As you hit new "classifications " your store is restructured and you gain new benefits/deficiencies. 
 END GAME/NEXT PHASE
 Eventually you can reach a point in time where you can incorporate (via research) and/or you can franchise. We could have a split in the tree where you choose to incorporate or franchise or we can have franchising in a later research within incorporation. 
-Franchising will offer limited control and a monthly cost but also yields income (assuming profitability and based on their success - which is something that can be influenced by your limited control). Think Sectors from Stellaris.
+Franchising will offer limited control and a monthly cost but also yields income (assuming profitability and based on their success - which is something that can be influenced by your limited control). Think Sectors from Stellaris. 
 Incorporation can/will add a new level of gameplay ('expansion' level change).
 It will open up stock markets, investments, investors, competition from additional (and often larger) corps.
 
@@ -64,3 +66,24 @@ History will affect starting skill levels.
 Personality will affect the traits an employee will gain upon promotion and also influence how well they work, how often they are unproductive or wasting time, and how good (or bad) their customer service is.
 Employee personalities can cause work place disputes that will be displayed as a notification on the "map" and a debuff to the department. 
 Certain personalities can offer an synergy to others to add a buff to the department (as will 'verteran' employees) while others may have no affect or offer debuffs.
+
+
+Deli researchable, has overhead, provides lower profit, but increases draw and satisfaction
+Bargains are initiatives the store can execute to boost customer flow with a penalty to overall sales - maybe on select categories/departments
+
+Initial start:
+money: 1m
+Department: Grocery
+Starting sqft 12000 sqft? Front end 2000sqft, BR 2000 sqft, department 8000 sqft
+Staff size limit: 12? Probably based on sq ft of each department and store.
+How do we calculate income? Based on the product suite to be added later
+Income v.01 will be based on employees assigned, sq ft, and customer classes. (employeeProductivity * employeeCount) * (sqft * sizeMulti) * (customerClassPotentialSpendable * satisfactionLevel) - may change satisfaction level to allow customer classes to have different base satisfaction levels.
+Customer traffic dependent on store draw, publicity, bargains, base level?
+Basic employee hiring - each employee will have 1 stat: productivity with a universal level of 1.
+Customer classes: lower, middle, upper.
+Customer classes will have 2 initial stats: potentialSpendable and satisfaction req.
+Lower: $100, .1
+Middle: $200, .4
+Upper: $1000, .9
+Expenses: again, generalized: no implemented expenses yet, the store pulls in 30% profit from the sales and each employee costs .3% profit on top of it. Utilities can be added as well to equal utilExpense * sqft. Call it $10 added every month - adjust.
+
