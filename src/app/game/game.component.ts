@@ -141,10 +141,6 @@ export class GameComponent implements OnInit {
     this.menuSelected = menuName;
   }
 
-  hireEmployee(){
-    let emp = new Employee(1, "John Doe");
-  }
-
   getWeek(): number {
     return 1 + Math.floor(this.game.daysPassed / 7); 
   }

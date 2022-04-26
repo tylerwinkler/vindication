@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GameComponent } from '../game/game.component';
+import { GameService } from '../game.service';
+import { Game } from '../game';
+import { Employee } from '../employee';
 
 @Component({
   selector: 'app-personnel',
@@ -8,9 +11,18 @@ import { GameComponent } from '../game/game.component';
 })
 export class PersonnelComponent implements OnInit {
 
-  constructor() { }
+  constructor(private gameService: GameService) {}
 
   ngOnInit(): void {
   }
 
+  hireEmployee(){
+    this.emp = this.gameService.get().hireEmployee();
+  }
+  emp: Employee | null = null
+
+  fireEmployee(){
+    this.gameService.get().fireEmployee();
+    this.emp = null;
+  }
 }

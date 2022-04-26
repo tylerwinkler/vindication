@@ -1,3 +1,14 @@
 <div>
     <button (click)="hireEmployee()">Hire</button>
 </div>
+<div *ngIf="emp">
+    <button (click)="fireEmployee()">Fire</button>
+</div>
+
+<div>
+    <ul>
+        <li *ngIf="emp">
+            {{emp.name}}
+        </li>
+    </ul>
+</div>
