@@ -4,7 +4,7 @@
     </div>
     <p class="sidebar-item">
         <app-money [money]=game.store.money></app-money>
-        <br><app-money class="smaller-text" [ngClass]="(getFlow()>0)?'pos':(getFlow()<0)?'neg':''" [money]=getFlow()></app-money>
+        <br><app-money class="smaller-text" [money]=getFlow() [colored]="true"></app-money>
     </p>
     <div class="sidebar-divider"></div>
     <p class="sidebar-item">

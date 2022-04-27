@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
-import { GameService } from '../game.service';
+import { GameService } from '../services/game.service';
 import { NewGameBuilder } from '../new-game-builder';
 
 @Component({
@@ -10,20 +10,22 @@ import { NewGameBuilder } from '../new-game-builder';
 })
 export class MainMenuComponent implements OnInit {
 
-  constructor(private gameService: GameService) {
-    this.app = AppComponent.app;
-  }
+  constructor(private gameService: GameService) {this.title = AppComponent.app.title;}
 
   ngOnInit(): void {
   }
 
   startNewGame(): void {
-    this.app.changeState("newGame");
+    AppComponent.app.changeState("newGame");
   }
 
   openLoadGameMenu(): void {
-    this.app.changeState("loadGame");
+    AppComponent.app.changeState("loadGame");
   }
 
-  app: AppComponent;
+  exit(): void {
+    open('about:blank', '_self');
+  }
+
+  title: string;
 }

@@ -1,3 +1,5 @@
+@import 'src/_variables.sass'
+
 :host
     text-align: center
     width: 100%
@@ -7,11 +9,19 @@ li
     margin-bottom: 1.5em
     font-size: 1.25em
     cursor: pointer
+    background-color: $secondary-background-color
+    margin: 10px auto
+    padding: 10px
+    max-width: 400px
+    border: solid 1px black
+    border-radius: 3px
+
+li:hover
+    filter: brightness(80%)
+
+ul
+    padding: 0
 
 h1
     font-size: 8em
-
-.not-implemented
-    filter: brightness(40%)
-    color: #f66
-    cursor: default 
+    text-shadow: 5px 5px black

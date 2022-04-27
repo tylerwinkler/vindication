@@ -1,1 +1,5 @@
-<span>{{formattedString()}}</span>
+<span 
+    [class.positive]="colored && money > 0"
+    [class.negative]="colored && money < 0">
+    {{formattedString()}}
+</span>

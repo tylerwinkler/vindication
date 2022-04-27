@@ -6,9 +6,9 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let finance of finances">
+        <tr *ngFor="let finance of finances.sort(); let i = index" (click)="removeItemAt(i)">
             <td>{{finance.name}}</td>
-            <td><app-money [money]=finance.value></app-money></td>
+            <td><app-money [money]=finance.value  [colored]="true"></app-money></td>
         </tr>
     </tbody>
 </table>

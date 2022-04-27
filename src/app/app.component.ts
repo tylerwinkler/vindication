@@ -1,7 +1,6 @@
 import { Component, HostListener } from '@angular/core';
-import { Game } from './game';
-import { GameService } from './game.service';
-import { NewGameBuilder } from './new-game-builder';
+import { Game } from './models/game';
+import { GameService } from './services/game.service';
 
 @Component({
   selector: 'app-root',

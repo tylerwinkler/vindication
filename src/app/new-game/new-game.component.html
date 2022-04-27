@@ -6,8 +6,8 @@
     <label for="store-name">Store Name:</label>
     <input type="text" [(ngModel)]="storeName" id="store-name">
     <p>2. Which size store would you like to start with?</p>
-    <button class="button store-size-button" #refSmallBtn (click)="setStoreSize(refSmallBtn, 'small')">Small store and <app-money class="important money" [money]=availableLoan></app-money></button>
-    <button class="button store-size-button" #refLargeBtn (click)="setStoreSize(refLargeBtn, 'large')">Large store and <app-money class="important money" [money]=availableLoan></app-money></button>
+    <button class="button store-size-button" #refSmallBtn (click)="setStoreSize(refSmallBtn, 'small')">Small store and <app-money class="important" [money]=availableLoan [colored]="true"></app-money></button>
+    <button class="button store-size-button" #refLargeBtn (click)="setStoreSize(refLargeBtn, 'large')">Large store and <app-money class="important" [money]=availableLoan [colored]="true"></app-money></button>
     <br>
     <br>
     <button class="button controls-button danger" (click)="goToMainMenu()">Go Back</button>

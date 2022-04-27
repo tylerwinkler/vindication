@@ -18,4 +18,6 @@ export class MoneyComponent implements OnInit {
   }
 
   @Input() money!: number;
+
+  @Input() colored: boolean = false;
 }

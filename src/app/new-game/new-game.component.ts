@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
-import { GameService } from '../game.service';
+import { GameService } from '../services/game.service';
 import { NewGameBuilder } from '../new-game-builder';
 
 @Component({
@@ -42,11 +42,6 @@ export class NewGameComponent implements OnInit {
     document.querySelectorAll('.store-size-button').forEach(e => e.classList.remove('active'));
     el.classList.add('active');
     this.storeSize = size;
-  }
-
-  formattedMoney(val: number): string {
-    let str = Math.floor(val).toString();
-    return '$' + str.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
   }
 
   storeSize = 'none';

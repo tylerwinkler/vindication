@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ResearchTreeComponent } from '../research-tree/research-tree.component';
 import { AppComponent } from '../app.component';
-import { Game } from '../game';
-import { GameService } from '../game.service';
+import { Game } from '../models/game';
+import { GameService } from '../services/game.service';
 import { LocalStorageSaveManager } from '../saves/local-storage-save-manager';
 import { Save } from '../saves/save';
 import { PersonnelComponent } from '../personnel/personnel.component';
-import { Employee } from '../employee';
-import { FinancialLineItem, Store } from '../store';
+import { Employee } from '../models/employee';
+import { FinancialLineItem, Store } from '../models/store';
 
 @Component({
   selector: 'app-game',
@@ -138,11 +138,6 @@ export class GameComponent implements OnInit {
       //this.game.store.money += 4000 + Math.random() * 1000;
       this.game.store.money += this.getFlow();
     }
-  }
-
-  formattedMoney(): string {
-    let str = Math.floor(this.game.store.money).toString();
-    return str.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
   }
 
   selectMenu(menuName: string): void {

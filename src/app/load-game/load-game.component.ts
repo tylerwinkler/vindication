@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
-import { Game } from '../game';
-import { GameService } from '../game.service';
+import { Game } from '../models/game';
+import { GameService } from '../services/game.service';
 import { SavedGameBuilder } from '../saved-game-builder';
 import { LocalStorageSaveManager } from '../saves/local-storage-save-manager';
 import { Save } from '../saves/save';
@@ -43,21 +43,6 @@ export class LoadGameComponent implements OnInit {
     lsm.deleteSave(save);
     this.populateSaves();
     console.log('clicked');
-  }
-
-  formatCurrency(value: number | string) {
-    if (typeof(value) === "number") {
-      value = Math.floor(value).toString(10);
-    }
-    else {
-      value = value.replace(/\.\d*/g, '');
-    }
-
-    for (var i = value.length - 3; i > 0; i -= 3) {
-      value = value.substring(0, i) + "," + value.substring(i);
-    }
-
-    return "$" + value;
   }
 
   saves = new Array<Save>();

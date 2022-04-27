@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GameService } from '../game.service';
-import { FinancialLineItem } from '../store';
+import { GameService } from '../services/game.service';
+import { FinancialLineItem } from '../models/store';
 
 @Component({
   selector: 'app-finances',
@@ -9,10 +9,16 @@ import { FinancialLineItem } from '../store';
 })
 export class FinancesComponent implements OnInit {
 
-  constructor(private gameService: GameService) {this.finances = gameService.get().store.getFinances()}
+  constructor(private gameService: GameService) {this.finances = gameService.get().store.getFinances(); this.displayArr = (this.finances);}
 
   ngOnInit(): void {
   }
 
+  removeItemAt(index: number) {
+    this.displayArr.splice(index, 1);
+  }
+
   finances: Array<FinancialLineItem>;
+
+  displayArr: Array<FinancialLineItem>;
 }

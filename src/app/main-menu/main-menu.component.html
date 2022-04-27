@@ -1,7 +1,7 @@
-<h1>{{app.title | titlecase}}</h1>
+<h1>{{title | titlecase}}</h1>
 <ul>
     <li (click)="startNewGame()">New Game</li>
     <li (click)="openLoadGameMenu()">Load Game</li>
-    <li class="not-implemented">Settings</li>
-    <li class="not-implemented">Exit? Where does a web game exit to?</li>
+    <li disabled>Settings</li>
+    <li (click)="exit()">Exit</li>
 </ul>

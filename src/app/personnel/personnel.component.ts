@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GameComponent } from '../game/game.component';
-import { GameService } from '../game.service';
-import { Game } from '../game';
-import { Employee } from '../employee';
+import { GameService } from '../services/game.service';
+import { Game } from '../models/game';
+import { Employee } from '../models/employee';
 
 @Component({
   selector: 'app-personnel',
