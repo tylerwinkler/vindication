@@ -38,6 +38,10 @@ export class LoadGameComponent implements OnInit {
     AppComponent.app.changeState("playGame");
   }
 
+  goToMainMenu(): void {
+    AppComponent.app.changeState("mainMenu");
+  }
+
   deleteSave(save: Save): void {
     let lsm = new LocalStorageSaveManager(localStorage);
     lsm.deleteSave(save);

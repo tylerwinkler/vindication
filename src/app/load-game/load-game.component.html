@@ -1,4 +1,4 @@
-<h1>Select a Save</h1>
+<h1>Select a Save</h1><br>
 <ul class="save-list">
     <li *ngFor="let save of saves; let i = index">
         <div class="top-row">
@@ -11,3 +11,4 @@
         <button (click)="deleteSave(save)" class="delete-button">Delete</button>
     </li>
 </ul>
+<button class="button controls-button danger" (click)="goToMainMenu()">Go Back</button>
