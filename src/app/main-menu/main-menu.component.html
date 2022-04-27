@@ -1,5 +1,6 @@
 <h1>{{title | titlecase}}</h1>
 <ul>
+    <li (click)="continueGame()" *ngIf="save" class="continue-game-button">Continue<br>{{save.saveName}}</li>
     <li (click)="startNewGame()">New Game</li>
     <li (click)="openLoadGameMenu()">Load Game</li>
     <li disabled>Settings</li>

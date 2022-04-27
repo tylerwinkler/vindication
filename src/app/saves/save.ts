@@ -7,4 +7,5 @@ export interface Save {
     month: number;
     year: number;
     daysPassed: number;
+    lastPlayed: number;
 }

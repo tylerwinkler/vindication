@@ -36,6 +36,21 @@ export class LocalStorageSaveManager {
         return save;
     }
 
+    getMostRecentSave(): Save {
+        return this.getSaves().sort((a, b) => {
+            return a.lastPlayed > b.lastPlayed ? -1 : 1;
+        })[0];
+    }
+
+    getSaves(): Array<Save> {
+        let saves = new Array<Save>();
+        for (let name of this.getSaveNames()) {
+            saves.push(this.getSave(name)!);
+        }
+
+        return saves;        
+    }
+
     putSave(name: string, save: Save): void {
         this.storage.setItem(LocalStorageSaveManager.SaveToken + name, JSON.stringify(save));
     }

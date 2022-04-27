@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { GameService } from '../services/game.service';
 import { NewGameBuilder } from '../new-game-builder';
+import { Save } from '../saves/save';
+import { LocalStorageSaveManager } from '../saves/local-storage-save-manager';
+import { SavedGameBuilder } from '../saved-game-builder';
 
 @Component({
   selector: 'app-main-menu',
@@ -10,9 +13,20 @@ import { NewGameBuilder } from '../new-game-builder';
 })
 export class MainMenuComponent implements OnInit {
 
-  constructor(private gameService: GameService) {this.title = AppComponent.app.title;}
+  constructor(private gameService: GameService) {
+    this.title = AppComponent.app.title;
+    let lsm = new LocalStorageSaveManager(localStorage);
+    if (lsm.getSaveCount() > 0) {
+      this.save = lsm.getMostRecentSave();
+    }
+  }
 
   ngOnInit(): void {
+  }
+
+  continueGame(): void {
+    this.gameService.set(new SavedGameBuilder(this.save!).build());
+    AppComponent.app.changeState("playGame");
   }
 
   startNewGame(): void {
@@ -28,4 +42,6 @@ export class MainMenuComponent implements OnInit {
   }
 
   title: string;
+
+  save: Save | null = null;
 }
