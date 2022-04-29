@@ -1,7 +1,7 @@
 <div class="sidebar">
-    <div class="sidebar-item">
-        <input class="borderless large dark centered" [(ngModel)]="game.store.name">
-    </div>
+    <button class="sidebar-item clickable misc">
+        {{game.store.name}}
+    </button>
     <p class="sidebar-item">
         <app-money [money]=game.store.money></app-money>
         <br><app-money class="smaller-text" [money]=getFlow() [colored]="true" [signed]="true"></app-money>
@@ -37,22 +37,22 @@
         </svg>
     </div>
     <div class="sidebar-divider"></div>
-    <p class="sidebar-item clickable" (click)="selectMenu('research')">
+    <button class="sidebar-item clickable" (click)="selectMenu('research')">
         Research
-    </p>
-    <p class="sidebar-item clickable" (click)="selectMenu('personnel')">
+    </button>
+    <button class="sidebar-item clickable" (click)="selectMenu('personnel')">
         Personnel
-    </p>
-    <p class="sidebar-item clickable" (click)="selectMenu('departments')">
+    </button>
+    <button class="sidebar-item clickable" (click)="selectMenu('departments')">
         Departments
-    </p>
+    </button>
     <div class="sidebar-divider"></div>
-    <p class="sidebar-item clickable misc" (click)="saveGame()">Save</p>
-    <p class="sidebar-item clickable misc" (click)="saveGameAs()">Save As</p>
-    <p class="sidebar-item clickable misc" (click)="saveAndExit()">Main Menu</p>
-    <p class="sidebar-item clickable misc" (click)="addExpense(500)">Add Expense</p>
-    <p class="sidebar-item clickable misc" (click)="addExpense(-500)">Add Negative Expense</p>
-    <p class="sidebar-item clickable misc" (click)="game.store.addSqFt(12000)">Add 12000 Sqft</p>
+    <button class="sidebar-item clickable misc" (click)="saveGame()">Save</button>
+    <button class="sidebar-item clickable misc" (click)="saveGameAs()">Save As</button>
+    <button class="sidebar-item clickable misc" (click)="saveAndExit()">Main Menu</button>
+    <button class="sidebar-item clickable misc" (click)="addExpense(500)">Add Expense</button>
+    <button class="sidebar-item clickable misc" (click)="addExpense(-500)">Add Negative Expense</button>
+    <button class="sidebar-item clickable misc" (click)="game.store.addSqFt(12000)">Add 12000 Sqft</button>
 </div>
 <div class="content">
     <app-research-tree *ngIf="menuSelected=='research'"></app-research-tree>
