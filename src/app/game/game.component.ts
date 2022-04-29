@@ -195,7 +195,7 @@ export class GameComponent implements OnInit {
   addExpense(val: number): void {
     let ass = new FinancialLineItem("Misc", -val);
     if (this.game.store.hasFinancialItem(ass)) {
-      this.game.store.updateFinancialItem(ass, true);
+      this.game.store.updateFinancialItem(ass, false);
     }
     else {
       this.game.store.insertFinancialItem(ass);

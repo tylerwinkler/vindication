@@ -4,7 +4,7 @@
     </div>
     <p class="sidebar-item">
         <app-money [money]=game.store.money></app-money>
-        <br><app-money class="smaller-text" [money]=getFlow() [colored]="true"></app-money>
+        <br><app-money class="smaller-text" [money]=getFlow() [colored]="true" [plusIndicator]="true"></app-money>
     </p>
     <div class="sidebar-divider"></div>
     <p class="sidebar-item">
@@ -51,6 +51,7 @@
     <p class="sidebar-item clickable misc" (click)="saveGameAs()">Save As</p>
     <p class="sidebar-item clickable misc" (click)="saveAndExit()">Main Menu</p>
     <p class="sidebar-item clickable misc" (click)="addExpense(500)">Add Expense</p>
+    <p class="sidebar-item clickable misc" (click)="addExpense(-500)">Add Negative Expense</p>
     <p class="sidebar-item clickable misc" (click)="game.store.addSqFt(12000)">Add 12000 Sqft</p>
 </div>
 <div class="content">
