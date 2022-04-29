@@ -1,6 +1,7 @@
 export class Department {
     name = "";
     sqFt = 0;
+    shoppable = true;
 
     getMaxEmployeeSlots(): number {
         const EMPLOYEES_PER_SQFT = 1000;
@@ -8,6 +9,7 @@ export class Department {
     }
 
     getRevenue(): number {
-        return 60;
+        if (this.shoppable) return 60;
+        else return 0;
     }
 }

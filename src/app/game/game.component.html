@@ -4,7 +4,7 @@
     </div>
     <p class="sidebar-item">
         <app-money [money]=game.store.money></app-money>
-        <br><app-money class="smaller-text" [money]=getFlow() [colored]="true" [plusIndicator]="true"></app-money>
+        <br><app-money class="smaller-text" [money]=getFlow() [colored]="true" [signed]="true"></app-money>
     </p>
     <div class="sidebar-divider"></div>
     <p class="sidebar-item">
@@ -57,6 +57,7 @@
 <div class="content">
     <app-research-tree *ngIf="menuSelected=='research'"></app-research-tree>
     <app-personnel *ngIf="menuSelected=='personnel'"></app-personnel>
+    <app-department-grid *ngIf="menuSelected=='departments'"></app-department-grid>
 </div>
 <div class="console" [hidden]="!isDebug()">
     <label for="command">Command:</label>

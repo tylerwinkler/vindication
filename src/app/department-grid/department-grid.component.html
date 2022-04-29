@@ -1,0 +1,5 @@
+<div *ngFor="let dept of departments">
+    <p>{{dept.name}}</p>
+    <p>Revenue: <app-money [colored]=true [signed]=true [money]=dept.getRevenue()></app-money></p>
+    <p>Employees: 0/{{dept.getMaxEmployeeSlots()}}</p>
+</div>

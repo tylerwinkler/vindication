@@ -1,3 +1,4 @@
+import { Department } from "./department";
 import { Employee } from "./employee";
 
 class FinancialLineItem {
@@ -9,6 +10,7 @@ class FinancialLineItem {
 class Store {
     constructor() {
         this.finances.push(new FinancialLineItem("Utilities", 0));
+        this.finances.push(new FinancialLineItem("Wages", 0));
     }
 
     processEndOfMonth() {
@@ -20,7 +22,12 @@ class Store {
     }
 
     hireEmployee() {
+        if (this.getEmployeeLimit() <= this.employees.length) {
+            return null;
+        }
+
         this.employees.push(new Employee(1, "John Doe"));
+        this.updateFinancialItem(new FinancialLineItem("Wages", -this.getEmployeeExpense()), true);
         return this.employees[this.employees.length - 1];
     }
     
@@ -33,7 +40,7 @@ class Store {
     }
 
     calculateUtilities(): number {
-        return this.floorSpace * -3;
+        return this.sqFt * -3;
     }
 
     // Updates the line item when the store size changes
@@ -66,19 +73,41 @@ class Store {
     }
 
     addSqFt(sqFt: number) {
-        this.floorSpace += sqFt;
+        this.sqFt += sqFt;
         this.updateUtilities();
+    }
+
+    addDepartment(dept: Department) {
+        this.departments.push(dept);
+        if (dept.shoppable)
+        this.finances.push(new FinancialLineItem(dept.name, dept.getRevenue()));
+    }
+
+    getEmployeeLimit(): number {
+        return Math.ceil(this.sqFt / 1000);
+    }
+
+    // Returns the positive value of the employee wage expense
+    getEmployeeExpense(): number {
+        let revenue = 0;
+        for (let d of this.departments) {
+            revenue += d.getRevenue();
+        }
+
+        return Math.floor(revenue * 0.0003 * this.employees.length * 100) / 100;
     }
 
     name = ""; // Name of store
     money = 0; // Money available to store
     debt = 0; // LOANSMART wants their money back
 
-    floorSpace = 1000;
+    sqFt = 1000;
 
     finances = new Array<FinancialLineItem>();
     
     employees = new Array<Employee>();
+
+    departments = new Array<Department>();
 }
 
 export {Store, FinancialLineItem}

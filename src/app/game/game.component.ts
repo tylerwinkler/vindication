@@ -134,8 +134,6 @@ export class GameComponent implements OnInit {
 
     // Simulate the days passing for RNG purposes
     for (var i = 0; i < daysToAdvance; ++i) {
-      // You make $4000 + a random 0-1000 a day
-      //this.game.store.money += 4000 + Math.random() * 1000;
       this.game.store.money += this.getFlow();
     }
   }

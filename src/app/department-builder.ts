@@ -1,4 +1,4 @@
-import { Department } from "./department";
+import { Department } from "./models/department";
 
 export class DepartmentBuilder {
     setName(name: string): DepartmentBuilder {
@@ -8,6 +8,11 @@ export class DepartmentBuilder {
 
     setSqFt(sqFt: number): DepartmentBuilder {
         this.department.sqFt = sqFt;
+        return this;
+    }
+
+    setShoppable(shoppable: boolean): DepartmentBuilder {
+        this.department.shoppable = shoppable;
         return this;
     }
     

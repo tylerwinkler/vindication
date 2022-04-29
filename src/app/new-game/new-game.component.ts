@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { GameService } from '../services/game.service';
 import { NewGameBuilder } from '../new-game-builder';
+import { DepartmentBuilder } from '../department-builder';
+import { Department } from '../models/department';
 
 @Component({
   selector: 'app-new-game',
@@ -23,6 +25,21 @@ export class NewGameComponent implements OnInit {
       this.gameService.set(new NewGameBuilder()
       .setMoney(NewGameComponent.StartingMoney)
       .setName(this.storeName)
+      .setSqFt(12000)
+      .addDepartment(new DepartmentBuilder()
+        .setName("Grocery")
+        .setSqFt(8000)
+        .build())
+      .addDepartment(new DepartmentBuilder()
+        .setName("Backroom")
+        .setSqFt(2000)
+        .setShoppable(false)
+        .build())
+      .addDepartment(new DepartmentBuilder()
+        .setName("Frontend")
+        .setSqFt(2000)
+        .setShoppable(false)
+        .build())
       .build());
     }
     else if (this.storeSize === 'large') {

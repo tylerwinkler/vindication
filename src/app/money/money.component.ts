@@ -13,17 +13,18 @@ export class MoneyComponent implements OnInit {
   }
 
   formattedString(): string {
-    let str = Math.floor(this.money).toString();
+    let str = '$' + (Math.floor(Math.abs(this.money) * 100) / 100).toString();
 
-    if (this.plusIndicator && this.money > 0) {
-      str = "+" + str;
+    if (this.signed) {
+      if (this.money > 0) str = "+" + str;
+      else if (this.money < 0) str = "-" + str;
     }
 
-    return '$' + str.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    return str.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
   }
 
   @Input() money!: number;
 
   @Input() colored: boolean = false;
-  @Input() plusIndicator: boolean = false;
+  @Input() signed: boolean = false;
 }

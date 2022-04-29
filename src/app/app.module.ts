@@ -14,6 +14,7 @@ import { NewGameComponent } from './new-game/new-game.component';
 import { StoreComponent } from './store/store.component';
 import { FinancesComponent } from './finances/finances.component';
 import { MoneyComponent } from './money/money.component';
+import { DepartmentGridComponent } from './department-grid/department-grid.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MoneyComponent } from './money/money.component';
     NewGameComponent,
     StoreComponent,
     FinancesComponent,
-    MoneyComponent
+    MoneyComponent,
+    DepartmentGridComponent
   ],
   imports: [
     BrowserModule,
