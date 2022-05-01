@@ -1,3 +1,6 @@
+import { Department } from "../models/department";
+import { Employee } from "../models/employee";
+
 export interface Save { 
     version: number;
     saveName: string;
@@ -8,4 +11,6 @@ export interface Save {
     year: number;
     daysPassed: number;
     lastPlayed: number;
+    departments: Array<Department>;
+    employees: Array<Employee>;
 }

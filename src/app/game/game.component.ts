@@ -180,7 +180,9 @@ export class GameComponent implements OnInit {
       month: this.game.month,
       year: this.game.year,
       daysPassed: this.game.daysPassed,
-      lastPlayed: Date.now()
+      lastPlayed: Date.now(),
+      employees: this.game.store.employees,
+      departments: this.game.store.departments
     };
 
     new LocalStorageSaveManager(localStorage).putSave(s.saveName, s);
