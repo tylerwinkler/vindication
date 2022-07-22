@@ -42,12 +42,23 @@ export class LoadGameComponent implements OnInit {
     AppComponent.app.changeState("mainMenu");
   }
 
+  exportSave(save: Save): void {
+    this.downloadAsFile(btoa(JSON.stringify(save)), "mysave.txt");
+  }
+
   deleteSave(save: Save): void {
     let lsm = new LocalStorageSaveManager(localStorage);
     lsm.deleteSave(save);
     this.populateSaves();
     console.log('clicked');
   }
+
+  downloadAsFile(text: string, fileName: string): void {
+    const downloadLink = document.createElement('a');
+    downloadLink.download = fileName;
+    downloadLink.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
+    downloadLink.click();
+ }
 
   saves = new Array<Save>();
 }

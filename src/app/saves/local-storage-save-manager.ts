@@ -27,7 +27,7 @@ export class LocalStorageSaveManager {
             return null;
         }
 
-        let save = <Save>JSON.parse(object);
+        let save = <Save>JSON.parse(this.descramble(object));
 
         if (save.saveName === "" || save.saveName === undefined) {
             save.saveName = name;
@@ -52,12 +52,20 @@ export class LocalStorageSaveManager {
     }
 
     putSave(name: string, save: Save): void {
-        this.storage.setItem(LocalStorageSaveManager.SaveToken + name, JSON.stringify(save));
+        this.storage.setItem(LocalStorageSaveManager.SaveToken + name, this.scramble(JSON.stringify(save)));
     }
 
     deleteSave(save: Save): void {
         console.log('deleted ' + save.saveName);
         this.storage.removeItem(LocalStorageSaveManager.SaveToken + save.saveName);
+    }
+
+    scramble(text: string): string {
+        return btoa(text);
+    }
+
+    descramble(text: string): string {
+        return atob(text);
     }
 
     private static SaveToken: string = 'saves/';

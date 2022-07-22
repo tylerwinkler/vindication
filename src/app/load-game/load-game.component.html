@@ -8,6 +8,7 @@
         <div>Store Name: {{save.storeName}} | Money: <app-money [money]=save.money></app-money></div>
         <div>Store Date: {{save.month}}/{{save.day}}/{{save.year}}</div>
         <button (click)="loadGame(save)" class="load-button">Load</button>
+        <button (click)="exportSave(save)" class="export-button">Export</button>
         <button (click)="deleteSave(save)" class="delete-button">Delete</button>
     </li>
 </ul>

@@ -21,14 +21,20 @@ class Store {
  
     }
 
-    hireEmployee() {
+    hireEmployee(employee: Employee) {
         if (this.getEmployeeLimit() <= this.employees.length) {
-            return null;
+            return false;
         }
 
-        this.employees.push(new Employee(1, "John Doe"));
+        employee.id = this.generateEmployeeId();
+
+        this.employees.push(employee);
         this.updateFinancialItem(new FinancialLineItem("Wages", -this.getEmployeeExpense()), true);
-        return this.employees[this.employees.length - 1];
+        return true;
+    }
+
+    generateEmployeeId(): number {
+        return Math.ceil(Math.random() * 1000000) + 1000000;
     }
     
     fireEmployee(emp: Employee) {

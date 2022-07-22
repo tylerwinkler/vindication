@@ -3,7 +3,7 @@ export class Employee {
     name = '';
     productivity = 1;
 
-    constructor(id: number, name: string) {this.id=id; this.name=name}
+    constructor(name: string) {this.name=name}
 }
 
 

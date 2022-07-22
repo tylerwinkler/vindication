@@ -10,18 +10,37 @@ import { Employee } from '../models/employee';
 })
 export class PersonnelComponent implements OnInit {
 
-  constructor(private gameService: GameService) {}
+  constructor(private gameService: GameService) {
+    this.employees = gameService.get().store.employees;
+  }
 
   ngOnInit(): void {
+    this.candidates = [new Employee("Bob"),
+    new Employee("Jill"),
+    new Employee("JillBob")]
   }
 
-  hireEmployee(){
-    this.emp = this.gameService.get().store.hireEmployee();
+  hireCandidate(candidate: Employee){
+    if (this.selectedCandidate) {
+      this.gameService.get().store.hireEmployee(this.selectedCandidate);
+    }
   }
-  emp: Employee | null = null
+  
 
-  fireEmployee(){
-    this.gameService.get().store.fireEmployee(this.emp!);
-    this.emp = null;
+  fireEmployee(employee: Employee){
+    if (this.selectedEmployee) {
+      this.gameService.get().store.fireEmployee(employee);
+      this.selectedEmployee = null;
+    }
   }
+
+  selectEmployee(employee: Employee) {
+    this.selectedEmployee = employee;
+  }
+
+  selectedCandidate: Employee | null = null;
+  candidates: Employee[] | null = null;
+
+  selectedEmployee: Employee | null = null;
+  employees: Employee[] | null = null;
 }

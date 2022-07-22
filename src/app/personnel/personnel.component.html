@@ -1,14 +1,34 @@
 <div>
-    <button (click)="hireEmployee()">Hire</button>
+    
 </div>
-<div *ngIf="emp">
-    <button (click)="fireEmployee()">Fire</button>
+<div *ngIf="selectedEmployee">
+    
 </div>
 
 <div>
-    <ul>
-        <li *ngIf="emp">
-            {{emp.name}}
-        </li>
-    </ul>
+    <div class="employee-panel" *ngFor="let c of candidates">
+        <div class="employee-panel-header">
+            {{c.name}}
+        </div>
+        <div class="employee-panel-body">
+            picture here
+        </div>
+        <div class="employee-panel-footer">
+            <button (click)="hireCandidate(c)">Hire</button>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="employee-panel" *ngFor="let employee of employees">
+        <div class="employee-panel-header">
+            {{employee.name}}
+        </div>
+        <div class="employee-panel-body">
+            picture here
+        </div>
+        <div class="employee-panel-footer">
+            <button (click)="fireEmployee(employee)">Fire</button>
+        </div>
+    </div>
 </div>
