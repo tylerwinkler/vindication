@@ -1,5 +1,7 @@
-<p>Employees: {{employees()}}</p>
-<p>Store Size: {{this.game.store.sqFt}} Sq Ft</p>
-<p>Last Periods Income: <app-money [money]=employees()></app-money></p>
-<p>Expenses: <app-money [money]=expenses()></app-money></p>
-<p>Profit: <app-money [money]=profit()></app-money></p>
+<div>
+    <p>Employees: {{employees()}}</p>
+    <p>Store Size: {{this.game.store.sqFt}} Sq Ft</p>
+    <p>Last Periods Income: <app-money [money]=employees() [colored]="true" [signed]="true"></app-money></p>
+    <p>Expenses: <app-money [money]=expenses() [colored]="true" [signed]="true"></app-money></p>
+    <p>Profit: <app-money [money]=profit() [colored]="true" [signed]="true"></app-money></p>
+</div>
