@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core"
+import { Calendar } from "./calendar";
 import { Store } from "./store";
 
 @Injectable({ providedIn: 'root' })
@@ -10,6 +11,8 @@ export class Game {
     month = 1;
     year = 1970;
     daysPassed = 0;
+
+    calendar: Calendar = new Calendar();
 
     store: Store;
 }

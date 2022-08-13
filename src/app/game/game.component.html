@@ -1,5 +1,5 @@
 <div class="sidebar">
-    <button class="sidebar-item clickable misc">
+    <button class="sidebar-item clickable misc" (click)="selectMenu('store-info')">
         {{game.store.name}}
     </button>
     <p class="sidebar-item">
@@ -10,6 +10,7 @@
     <p class="sidebar-item">
         {{game.month}}/{{game.day}}/{{game.year}}
         <br><span class="smaller-text">Week {{getWeek()}}</span>
+        <!--<br>{{game.calendar.today().toLocaleString()}}-->
     </p>
     <div class="sidebar-divider"></div>
     <div class="time-control-group">
@@ -58,6 +59,7 @@
     <app-research-tree *ngIf="menuSelected=='research'"></app-research-tree>
     <app-personnel *ngIf="menuSelected=='personnel'"></app-personnel>
     <app-department-grid *ngIf="menuSelected=='departments'"></app-department-grid>
+    <app-store-info *ngIf="menuSelected=='store-info'"></app-store-info>
 </div>
 <div class="console" [hidden]="!isDebug()">
     <label for="command">Command:</label>

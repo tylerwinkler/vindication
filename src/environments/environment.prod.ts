@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  storeStartDate: new Date(1982, 6, 1)
 };

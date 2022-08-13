@@ -109,6 +109,19 @@ export class GameComponent implements OnInit {
       daysToAdvance = 1;
     }
 
+    this.game.calendar.advanceDay();
+    if (this.isDebug()) {
+      if (this.game.calendar.isNewWeek()) {
+        console.log("Yay! New week!");
+      }
+      if (this.game.calendar.isNewMonth()) {
+        console.log("Yay! New month!");
+      }
+      if (this.game.calendar.isNewYear()) {
+        console.log("Yay! New year!");
+      }
+    }
+
     // We cant advance forward a negative amount of days
     daysToAdvance = Math.max(0, daysToAdvance);
 

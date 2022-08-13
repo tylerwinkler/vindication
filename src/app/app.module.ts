@@ -15,6 +15,7 @@ import { StoreComponent } from './store/store.component';
 import { FinancesComponent } from './finances/finances.component';
 import { MoneyComponent } from './money/money.component';
 import { DepartmentGridComponent } from './department-grid/department-grid.component';
+import { StoreInfoComponent } from './store-info/store-info.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DepartmentGridComponent } from './department-grid/department-grid.compo
     StoreComponent,
     FinancesComponent,
     MoneyComponent,
-    DepartmentGridComponent
+    DepartmentGridComponent,
+    StoreInfoComponent
   ],
   imports: [
     BrowserModule,
