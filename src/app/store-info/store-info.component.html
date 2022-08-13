@@ -1,7 +1,7 @@
 <div>
     <p>Employees: {{employees()}}/{{maxEmployees()}}</p>
     <p>Store Size: {{storeSize()}} Sq Ft</p>
-    <p>Last Periods Income: <app-money [money]=employees() [colored]="true" [signed]="true"></app-money></p>
+    <p>Last Periods Income: <app-money [money]=0 [colored]="true" [signed]="true"></app-money></p>
     <p>Expenses: <app-money [money]=expenses() [colored]="true" [signed]="true"></app-money></p>
     <p>Profit: <app-money [money]=profit() [colored]="true" [signed]="true"></app-money></p>
 </div>
