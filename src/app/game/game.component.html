@@ -3,7 +3,7 @@
         {{game.store.name}}
     </button>
     <p class="sidebar-item">
-        <app-money [money]=game.store.money [signedNegative]="true"></app-money>
+        <app-money [money]=game.store.money></app-money>
         <br><app-money class="smaller-text" [money]=getFlow() [colored]="true" [signed]="true"></app-money>
     </p>
     <div class="sidebar-divider"></div>
