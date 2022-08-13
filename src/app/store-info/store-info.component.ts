@@ -18,6 +18,10 @@ export class StoreInfoComponent implements OnInit {
     return this.game.store.employees.length;
   }
 
+  maxEmployees(): number {
+    return this.game.store.getEmployeeLimit();
+  }
+
   storeSize(): number {
     return this.game.store.sqFt;
   }

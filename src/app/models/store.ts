@@ -39,6 +39,7 @@ class Store {
     
     fireEmployee(emp: Employee) {
         this.employees.splice(this.employees.findIndex(e => e.id === emp.id), 1);
+        this.updateFinancialItem(new FinancialLineItem("Wages", -this.getEmployeeExpense()), true);
     }
 
     getFinances(): Array<FinancialLineItem> {

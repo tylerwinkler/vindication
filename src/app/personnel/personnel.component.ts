@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GameService } from '../services/game.service';
 import { Game } from '../models/game';
 import { Employee } from '../models/employee';
+import { ReturnStatement } from '@angular/compiler';
 
 @Component({
   selector: 'app-personnel',
@@ -20,27 +21,25 @@ export class PersonnelComponent implements OnInit {
     new Employee("JillBob")]
   }
 
-  hireCandidate(candidate: Employee){
-    if (this.selectedCandidate) {
-      this.gameService.get().store.hireEmployee(this.selectedCandidate);
-    }
+  hireCandidate(candidate: Employee) {
+      if (!this.gameService.get().store.hireEmployee(candidate)) {
+        this.error = "Failed to hire. Store is at max capacity";
+        setTimeout(()=>this.error = "", 2000);
+        return;
+      }
+      if (this.candidates) {
+        this.candidates = this.candidates.filter(c => c != candidate);
+      }
   }
   
 
-  fireEmployee(employee: Employee){
-    if (this.selectedEmployee) {
+  fireEmployee(employee: Employee) {
       this.gameService.get().store.fireEmployee(employee);
-      this.selectedEmployee = null;
-    }
   }
 
-  selectEmployee(employee: Employee) {
-    this.selectedEmployee = employee;
-  }
-
-  selectedCandidate: Employee | null = null;
   candidates: Employee[] | null = null;
 
-  selectedEmployee: Employee | null = null;
   employees: Employee[] | null = null;
+
+  error: string = "";
 }
