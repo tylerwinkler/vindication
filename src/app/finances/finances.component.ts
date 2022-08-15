@@ -14,10 +14,6 @@ export class FinancesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  removeItemAt(index: number) {
-    this.displayArr.splice(index, 1);
-  }
-
   finances: Array<FinancialLineItem>;
 
   displayArr: Array<FinancialLineItem>;

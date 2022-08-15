@@ -7,7 +7,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let finance of finances.sort(); let i = index" (click)="removeItemAt(i)">
+        <tr *ngFor="let finance of finances.sort(); let i = index">
             <td>{{finance.name}}</td>
             <td><app-money [money]=finance.value  [colored]="true" [signed]="true"></app-money></td>
         </tr>
