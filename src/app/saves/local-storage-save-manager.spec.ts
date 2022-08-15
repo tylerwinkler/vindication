@@ -19,7 +19,10 @@ describe('LocalStorageSaveManager', () => {
       day: 0,
       month: 0,
       year: 0,
-      daysPassed: 0
+      daysPassed: 0,
+      lastPlayed: 0,
+      departments: [],
+      employees: []
     };
 
     lsm.putSave('test', save);
@@ -43,7 +46,10 @@ describe('LocalStorageSaveManager', () => {
       day: 0,
       month: 0,
       year: 0,
-      daysPassed: 0
+      daysPassed: 0,
+      lastPlayed: 0,
+      departments: [],
+      employees: []
     };
 
     lsm.putSave('test', save);
