@@ -16,6 +16,7 @@ import { FinancesComponent } from './finances/finances.component';
 import { MoneyComponent } from './money/money.component';
 import { DepartmentGridComponent } from './department-grid/department-grid.component';
 import { StoreInfoComponent } from './store-info/store-info.component';
+import { SaveGameModalComponent } from './modal/save-game-modal/save-game-modal.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { StoreInfoComponent } from './store-info/store-info.component';
     FinancesComponent,
     MoneyComponent,
     DepartmentGridComponent,
-    StoreInfoComponent
+    StoreInfoComponent,
+    SaveGameModalComponent
   ],
   imports: [
     BrowserModule,
