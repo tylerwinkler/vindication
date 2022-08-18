@@ -165,29 +165,12 @@ export class GameComponent implements OnInit {
 
   saveGameAs(): void {
     this.saveModal.show();
-    
-    let results = prompt("Enter a name for this save");
-      if (results && results.trim() !== "") {
-        this.game.saveName = results!;
-      }
-      else {
-        alert("Save must have a non-empty name");
-        return;
-      }     
-
-      this.saveGame();
   }
 
   saveGame(): void {
     if (this.game.saveName.trim() === "") {
-      let results = prompt("Enter a name for this save");
-      if (results && results.trim() !== "") {
-        this.game.saveName = results!;
-      }
-      else {
-        alert("Save must have a non-empty name");
-        return;
-      }
+      this.saveModal.show();
+      return;
     }
 
     let s: Save = {

@@ -3,9 +3,9 @@
         <h4>Save Game</h4><span (click)="close()"></span>
     </div>
     <div class="modal-body">
-        Save name: <input type="text">
+        Save name: <input type="text" [(ngModel)]="saveName">
     </div>
     <div class="modal-footer">
-        <button class="save-btn">Save</button><button class="cancel-btn" (click)="close()">Cancel</button>
+        <button class="save-btn" (click)="performSaveAction()">Save</button><button class="cancel-btn" (click)="close()">Cancel</button>
     </div>
 </div>
