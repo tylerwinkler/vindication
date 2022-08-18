@@ -1,11 +1,11 @@
 <div *ngIf="visible" class="modal">
     <div class="modal-header">
-        <h3>Save Game</h3><span (click)="close()"></span>
+        <h4>Save Game</h4><span (click)="close()"></span>
     </div>
     <div class="modal-body">
         Save name: <input type="text">
     </div>
     <div class="modal-footer">
-        <button>Okay</button><button>Cancel</button>
+        <button class="save-btn">Save</button><button class="cancel-btn" (click)="close()">Cancel</button>
     </div>
 </div>

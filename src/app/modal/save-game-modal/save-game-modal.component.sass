@@ -1,30 +1,55 @@
+@import 'src/_variables.sass'
+
+$save-btn-color: #dead
+$cancel-btn-color: #dad
+
 .modal
     position: absolute
     left: 50%
     top: 50%
     transform: translate(-50%, -50%)
     max-height: 90%
-    border: solid 1px black
+    border: solid 1px white
     box-sizing: border-box
-    padding: 5px
+    padding: 10px 5px
+    background-color: $secondary-background-color
 
-h3
+h4
     margin-top: 0
     display: inline
 
 span
     float: right
+    cursor: pointer
 
 span:after
     content: 'X'
 
 .modal-header
-    border-bottom: solid 1px black
-    padding-bottom: 5px
+    border-bottom: solid 1px white
+    padding-bottom: 10px
 
 .modal-body
-    margin: 5px 0
+    margin: 10px 0
 
 .modal-footer
-    border-top: solid 1px black
-    padding-top: 5px
+    border-top: solid 1px white
+    padding-top: 10px
+
+.modal-footer button
+    float: right
+
+.save-btn
+    background-color: $save-btn-color
+
+.save-btn:hover
+    background-color: darken($save-btn-color, 10%)
+
+.cancel-btn
+    background-color: #dad
+
+.cancel-btn:hover
+    background-color: darken($cancel-btn-color, 10%)
+
+button:hover
+    cursor: pointer
