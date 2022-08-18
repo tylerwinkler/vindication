@@ -12,4 +12,14 @@ export class SaveGameModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  show(): void {
+    this.visible = true;
+  }
+
+  close(): void {
+    this.visible = false;
+  }
+
+  visible: boolean = false;
+
 }

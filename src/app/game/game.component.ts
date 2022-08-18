@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ResearchTreeComponent } from '../research-tree/research-tree.component';
 import { AppComponent } from '../app.component';
 import { Game } from '../models/game';
@@ -8,6 +8,7 @@ import { Save } from '../saves/save';
 import { PersonnelComponent } from '../personnel/personnel.component';
 import { Employee } from '../models/employee';
 import { FinancialLineItem, Store } from '../models/store';
+import { SaveGameModalComponent } from '../modal/save-game-modal/save-game-modal.component';
 
 @Component({
   selector: 'app-game',
@@ -16,6 +17,9 @@ import { FinancialLineItem, Store } from '../models/store';
 })
 export class GameComponent implements OnInit {
   constructor(private gameService: GameService) {this.game = this.gameService.get();}
+
+  @ViewChild(SaveGameModalComponent)
+  private saveModal!: SaveGameModalComponent;
 
   ngOnInit(): void {
     let clickables = document.querySelectorAll(".sidebar-item.clickable:not(.time-control):not(.misc)");
@@ -160,6 +164,8 @@ export class GameComponent implements OnInit {
   }
 
   saveGameAs(): void {
+    this.saveModal.show();
+    
     let results = prompt("Enter a name for this save");
       if (results && results.trim() !== "") {
         this.game.saveName = results!;
@@ -167,7 +173,7 @@ export class GameComponent implements OnInit {
       else {
         alert("Save must have a non-empty name");
         return;
-      }
+      }     
 
       this.saveGame();
   }
